@@ -1,7 +1,9 @@
 #primer archivo
 
 print "con un cambio"
-print "nuevo comentario"
+
+print "mezclando"
 print"me llamo ruben"
 
+print "sigo mezclando"
 
