@@ -1,0 +1,44 @@
+int sensor_temp, valor;
+
+void setup()
+{
+  pinMode(2,INPUT);
+  pinMode(3,OUTPUT);
+  Serial.begin(115200);
+}
+
+void loop()
+{
+  if(Serial.available()>0)
+  {
+    valor=Serial.read();
+    if (valor=='a')
+    {
+      digitalWrite(3,HIGH);
+    }
+    if (valor=='b')
+    {
+      digitalWrite(3,LOW);  
+    }
+  }
+  
+  sensor_temp = analogRead(A1);
+  sensor_temp=map(sensor_temp,0,1023,0,12);
+  //Serial.println(sensor_temp); 
+  
+  if(digitalRead(2)==true)
+  {
+    valor=1;
+  }
+  
+  if(digitalRead(2)==false)
+  {
+    valor=0;
+  }
+ // Serial.print(sensor_temp);
+  //Serial.print(" ");
+  //Serial.println(valor);
+  String var=("valor= " + String(valor) + ",sensor= "+ String(sensor_temp) + "\n");
+  Serial.print(var);
+  delay(400);
+} 
